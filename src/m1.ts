@@ -1,0 +1,1 @@
+export const hi = '你好'  //对外暴露变量hi

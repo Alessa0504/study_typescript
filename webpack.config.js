@@ -1,5 +1,9 @@
 // 引入模块path，作用是拼接路径
 const path = require('path');
+// 引入html插件
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+// 引入clean插件
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // webpack中所有的配置信息都应该写在module.exports中
 module.exports = {
@@ -29,5 +33,19 @@ module.exports = {
                 exclude: /node_modules/   //排除node_modules
             }
         ]
+    },
+
+    // 配置Webpack插件
+    plugins: [
+        new CleanWebpackPlugin(),
+        new HTMLWebpackPlugin({
+            title: "自定义title"
+        })
+    ],
+
+    // 设置引用模块
+    resolve: {
+        //扩展名
+        extensions: ['.ts', '.js']   //所有.ts或.js结尾的文件都可以作为模块引入
     }
 };
